@@ -1,4 +1,5 @@
 import type { ImageMetadata } from "astro";
+import type { Locale } from "~/i18n";
 
 /**
  * Visual frame props shared by every section archetype: tone (background +
@@ -104,7 +105,7 @@ export interface ComparisonProps extends SectionProps {
   columns: ComparisonColumn[];
   rows: ComparisonRow[];
   /** Drives screen-reader labels for the Check/X icons. */
-  lang?: "de" | "en";
+  lang?: Locale;
 }
 
 export interface FAQItem {

@@ -3,7 +3,6 @@ import { getCollection, render } from "astro:content";
 import type { Locale } from "~/i18n";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import LegalDocument from "~/components/LegalDocument.astro";
-import { getAlternateCollectionSlug } from "~/lib/page-registry";
 
 interface Props {
   lang: Locale;
@@ -22,11 +21,6 @@ if (!entry) {
 }
 
 const { Content } = await render(entry);
-const alternateSlug = await getAlternateCollectionSlug(
-  lang,
-  "pages",
-  "privacy",
-);
 ---
 
 <BaseLayout
@@ -34,7 +28,6 @@ const alternateSlug = await getAlternateCollectionSlug(
   description={entry.data.description}
   lang={lang}
   currentSlug={currentSlug}
-  alternateSlug={alternateSlug}
 >
   <LegalDocument title={entry.data.title} lang={lang}>
     <Content />

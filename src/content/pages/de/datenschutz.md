@@ -6,25 +6,25 @@ description: "Informationen zum Datenschutz und zur Verarbeitung Ihrer personenb
 
 ## Verantwortlicher
 
-Greenleaf Digital
-Musterstraße 1
-12345 Musterstadt
-E-Mail: hello@example.com
+Robin Englmann
+Heinrich-Heine-Str. 14
+85092 Kösching
+E-Mail: robin.englmann@biaround.de
 
 ## Erhebung und Verarbeitung von Daten
 
 Diese Website wird als statische Website betrieben. Es werden keine personenbezogenen Daten automatisch erhoben, es sei denn, Sie erteilen Ihre ausdrückliche Einwilligung über das Cookie-Consent-Banner.
 
-## Cookies
+## Kontaktaufnahme
 
-Wir verwenden technisch notwendige Cookies sowie optionale Analyse-Cookies (PostHog). Sie können Ihre Einwilligung jederzeit über das Cookie-Banner oder die Cookie-Einstellungen im Footer widerrufen.
+Wenn Sie mich per E-Mail oder über das Kontaktformular kontaktieren, verarbeite ich Ihre Angaben ausschließlich zur Bearbeitung Ihrer Anfrage.
 
-## Analyse
+## Cookies und Analyse
 
-Bei Einwilligung nutzen wir PostHog zur Analyse des Nutzungsverhaltens. PostHog wird auf EU-Servern betrieben (eu.posthog.com). Die Daten werden anonymisiert verarbeitet.
+Technisch notwendige Cookies werden ohne Einwilligung gesetzt. Optionale Analyse-Dienste werden nur geladen, wenn Sie über das Cookie-Banner zustimmen. Ihre Einwilligung können Sie jederzeit widerrufen.
 
 ## Ihre Rechte
 
-Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten. Kontaktieren Sie uns unter hello@example.com.
+Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten. Kontaktieren Sie mich dazu unter robin.englmann@biaround.de.
 
-_Diese Datenschutzerklärung ist ein Platzhalter. Ersetzen Sie sie durch Ihre eigene, rechtskonform erstellte Datenschutzerklärung._
+_Diese Datenschutzerklärung ist eine Vorlage. Bitte lassen Sie sie vor der Veröffentlichung rechtlich prüfen und um den tatsächlich genutzten Hosting-Anbieter und eventuelle Analyse-Dienste ergänzen._

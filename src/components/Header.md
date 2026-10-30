@@ -7,11 +7,11 @@ tags: [layout]
 
 ## Purpose
 
-Renders the persistent top bar of every page: the site logo, a horizontal desktop nav, a `LanguageSwitcher`, and a collapsible mobile hamburger menu. Handles state-aware background for the `on-dark` variant (transparent at top, `bg-surface-dark/80` after 80 px of scroll or while the mobile menu is open).
+Renders the persistent top bar of every page: the site logo, a horizontal desktop nav and a collapsible mobile hamburger menu. Handles state-aware background for the `on-dark` variant (transparent at top, `bg-surface-dark/80` after 80 px of scroll or while the mobile menu is open).
 
 ## When to use
 
-Include once in every page layout, directly inside the `<body>` or a root layout component before the page `<main>`. Pass `currentSlug` and `alternateSlug` from the page's `getStaticPaths` entry so the `LanguageSwitcher` can produce the correct cross-locale link.
+Include once in every page layout, directly inside the `<body>` or a root layout component before the page `<main>`. Pass `currentSlug` so the active nav item is highlighted.
 
 ## When NOT to use
 
@@ -20,12 +20,11 @@ Include once in every page layout, directly inside the `<body>` or a root layout
 
 ## Props
 
-| Prop            | Type                      | Required | Default      | Notes                                                                                  |
-| --------------- | ------------------------- | -------- | ------------ | -------------------------------------------------------------------------------------- |
-| `lang`          | `Locale`                  | yes      | —            | Drives nav link paths and `LanguageSwitcher`.                                          |
-| `currentSlug`   | `string`                  | no       | `undefined`  | Slug of the current page within its locale; used for active state.                     |
-| `alternateSlug` | `string`                  | no       | `undefined`  | Slug of the equivalent page in the other locale.                                       |
-| `variant`       | `"on-dark" \| "on-light"` | no       | `"on-light"` | Controls logo, link, and hamburger colours. Use `on-dark` for hero-over-image layouts. |
+| Prop          | Type                      | Required | Default      | Notes                                                                                  |
+| ------------- | ------------------------- | -------- | ------------ | -------------------------------------------------------------------------------------- |
+| `lang`        | `Locale`                  | yes      | —            | Drives nav link paths.                                                                 |
+| `currentSlug` | `string`                  | no       | `undefined`  | Slug of the current page within its locale; used for active state.                     |
+| `variant`     | `"on-dark" \| "on-light"` | no       | `"on-light"` | Controls logo, link, and hamburger colours. Use `on-dark` for hero-over-image layouts. |
 
 ## Example
 
@@ -35,24 +34,24 @@ import Header from "~/components/Header.astro";
 ---
 
 <!-- Light page -->
-<Header lang={lang} currentSlug="blog" alternateSlug="blog" />
+<Header lang={lang} currentSlug="blog" />
 
 <!-- Dark hero page — header starts transparent, fills in on scroll -->
-<Header lang={lang} currentSlug="" alternateSlug="" variant="on-dark" />
+<Header lang={lang} currentSlug="" variant="on-dark" />
 ```
 
 ## i18n keys
 
-| Key                      | DE                | EN                |
-| ------------------------ | ----------------- | ----------------- |
-| `site.name`              | Greenleaf Digital | Greenleaf Digital |
-| `navigation.home`        | Startseite        | Home              |
-| `navigation.about`       | Über uns          | About             |
-| `navigation.services`    | Leistungen        | Services          |
-| `navigation.blog`        | Blog              | Blog              |
-| `navigation.caseStudies` | Referenzen        | Case Studies      |
-| `navigation.team`        | Team              | Team              |
-| `navigation.contact`     | Kontakt           | Contact           |
+| Key                      | DE             | EN             |
+| ------------------------ | -------------- | -------------- |
+| `site.name`              | Robin Englmann | Robin Englmann |
+| `navigation.home`        | Startseite     | Home           |
+| `navigation.about`       | Über uns       | About          |
+| `navigation.services`    | Leistungen     | Services       |
+| `navigation.blog`        | Blog           | Blog           |
+| `navigation.caseStudies` | Referenzen     | Case Studies   |
+| `navigation.team`        | Team           | Team           |
+| `navigation.contact`     | Kontakt        | Contact        |
 
 Nav links are hardcoded as `navItems` in the component frontmatter. Localized slugs (`ueber-uns` ↔ `about`, `leistungen` ↔ `services`, etc.) are defined inline via `lang === "de"` ternaries — `page-registry.ts` is not imported; the two must be kept in sync manually.
 

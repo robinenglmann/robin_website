@@ -22,7 +22,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "node scripts/check-bilingual.mjs && node scripts/check-component-docs.mjs --root=src/components && node scripts/check-fixtures.mjs",
+    "prebuild": "node scripts/check-component-docs.mjs --root=src/components && node scripts/check-fixtures.mjs",
     "build": "astro sync && pnpm lint && pnpm typecheck && astro build && node --env-file-if-exists=.env scripts/postbuild-headers.mjs",
     "preview": "astro preview",
     "typecheck": "astro check --minimumSeverity warning && tsc --noEmit && tsc --noEmit -p functions/tsconfig.json",

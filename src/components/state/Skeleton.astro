@@ -34,8 +34,7 @@ const {
   lang,
 } = Astro.props;
 
-const resolvedLang: Locale =
-  lang ?? (Astro.url.pathname.startsWith("/en") ? "en" : "de");
+const resolvedLang: Locale = lang ?? "de";
 const { t } = useTranslations(resolvedLang);
 const loadingLabel = t("state.loading");
 

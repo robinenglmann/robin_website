@@ -25,7 +25,7 @@ export type CollectionName =
 
 export interface PageEntry {
   key: PageKey;
-  slug: { de: string; en: string };
+  slug: { de: string };
   component: () => Promise<{ default: unknown }>;
   noindex?: boolean;
 }
@@ -56,53 +56,38 @@ export type RouteMatch = StaticPageMatch | CollectionDetailMatch;
 export const PAGES = [
   {
     key: "about" as const,
-    slug: { de: "ueber-uns", en: "about" },
+    slug: { de: "ueber-mich" },
     component: () => import("~/components/pages/about.astro"),
   },
   {
     key: "services" as const,
-    slug: { de: "leistungen", en: "services" },
+    slug: { de: "vortraege" },
     component: () => import("~/components/pages/services.astro"),
   },
   {
     key: "blog-index" as const,
-    slug: { de: "blog", en: "blog" },
+    slug: { de: "blog" },
     component: () => import("~/components/pages/blog-index.astro"),
   },
   {
-    key: "events-index" as const,
-    slug: { de: "veranstaltungen", en: "events" },
-    component: () => import("~/components/pages/events-index.astro"),
-  },
-  {
     key: "case-studies-index" as const,
-    slug: { de: "referenzen", en: "case-studies" },
+    slug: { de: "referenzen" },
     component: () => import("~/components/pages/case-studies-index.astro"),
   },
   {
-    key: "team" as const,
-    slug: { de: "team", en: "team" },
-    component: () => import("~/components/pages/team.astro"),
-  },
-  {
     key: "contact" as const,
-    slug: { de: "kontakt", en: "contact" },
+    slug: { de: "kontakt" },
     component: () => import("~/components/pages/contact.astro"),
   },
   {
     key: "privacy" as const,
-    slug: { de: "datenschutz", en: "privacy" },
+    slug: { de: "datenschutz" },
     component: () => import("~/components/pages/privacy.astro"),
   },
   {
     key: "imprint" as const,
-    slug: { de: "impressum", en: "imprint" },
+    slug: { de: "impressum" },
     component: () => import("~/components/pages/imprint.astro"),
-  },
-  {
-    key: "careers-index" as const,
-    slug: { de: "karriere", en: "careers" },
-    component: () => import("~/components/pages/careers-index.astro"),
   },
 ] satisfies PageEntry[];
 
@@ -156,9 +141,9 @@ type CollectionDetailPath = {
   };
 };
 
-/** Route param for the apex catch-all: DE without prefix, EN under en/. */
-function toPathParam(lang: Locale, slug: string): string {
-  return lang === "de" ? slug : `en/${slug}`;
+/** Route param for the apex catch-all: single-locale site, no prefix. */
+function toPathParam(_lang: Locale, slug: string): string {
+  return slug;
 }
 
 /** Pushes detail paths for a single collection into `paths`. */
@@ -200,7 +185,7 @@ function pushDetailPaths(
 export async function getCollectionDetailPaths(): Promise<
   CollectionDetailPath[]
 > {
-  const locales: Locale[] = ["de", "en"];
+  const locales: Locale[] = ["de"];
   const paths: CollectionDetailPath[] = [];
 
   // Team has no detail pages — shown on team index only.
@@ -238,53 +223,8 @@ export async function getAllPaths(): Promise<
       params: { path: toPathParam("de", entry.slug.de) },
       props: { kind: "static-page", lang: "de", slug: entry.slug.de },
     });
-    staticPaths.push({
-      params: { path: toPathParam("en", entry.slug.en) },
-      props: { kind: "static-page", lang: "en", slug: entry.slug.en },
-    });
   }
 
   const detailPaths = await getCollectionDetailPaths();
   return [...staticPaths, ...detailPaths];
-}
-
-// ---------------------------------------------------------------------------
-// Alternate locale slug helpers
-// ---------------------------------------------------------------------------
-
-export function getAlternateLocaleSlug(
-  currentLang: Locale,
-  currentSlug: string,
-): { lang: Locale; slug: string } | undefined {
-  const entry = findPageBySlug(currentLang, currentSlug);
-  if (!entry) return undefined;
-  const otherLang: Locale = currentLang === "de" ? "en" : "de";
-  return { lang: otherLang, slug: entry.slug[otherLang] };
-}
-
-export async function getAlternateCollectionSlug(
-  currentLang: Locale,
-  collectionName: CollectionName,
-  translationKey: string,
-): Promise<string | undefined> {
-  const otherLang: Locale = currentLang === "de" ? "en" : "de";
-  // getCollection is overloaded per collection name; cast through unknown to
-  // extract the subset we actually use (id + data.translationKey).
-  const rawEntries = (await getCollection(
-    collectionName as Parameters<typeof getCollection>[0],
-  )) as unknown as { id: string; data: { translationKey: string } }[];
-  const entries = rawEntries;
-  const paired = entries.find((e) => {
-    return (
-      e.data.translationKey === translationKey &&
-      e.id.startsWith(`${otherLang}/`)
-    );
-  });
-  if (!paired) return undefined;
-
-  const registryKey = COLLECTION_REGISTRY_KEY[collectionName];
-  const pageEntry = findPageByKey(registryKey);
-  const parentSlug = pageEntry?.slug[otherLang] ?? registryKey;
-  const entrySlug = paired.id.slice(paired.id.indexOf("/") + 1);
-  return `${parentSlug}/${entrySlug}`;
 }

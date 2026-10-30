@@ -5,11 +5,10 @@ import type { Locale } from "~/i18n";
 import { useTranslations, getLocalizedPath } from "~/i18n";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import Button from "~/components/Button.astro";
-import { getAlternateCollectionSlug } from "~/lib/page-registry";
 import {
-  Palette,
-  Code,
-  Lightbulb,
+  BrainCircuit,
+  RefreshCw,
+  Users,
   ArrowRight,
   CheckCircle,
 } from "@lucide/astro";
@@ -22,15 +21,7 @@ interface Props {
 const { lang, currentSlug } = Astro.props;
 const { t } = useTranslations(lang);
 
-const alternateSlug = await getAlternateCollectionSlug(
-  lang,
-  "pages",
-  "services",
-);
-const contactHref = getLocalizedPath(
-  lang === "de" ? "kontakt" : "contact",
-  lang,
-);
+const contactHref = getLocalizedPath("kontakt", lang);
 
 const pagesEntries = await getCollection("pages");
 const heroImage = pagesEntries.find(
@@ -39,61 +30,37 @@ const heroImage = pagesEntries.find(
 
 const services = [
   {
-    icon: Palette,
+    icon: BrainCircuit,
     titleKey: "services.webDesign.title",
     descKey: "services.webDesign.description",
-    features:
-      lang === "de"
-        ? [
-            "Responsive Design",
-            "Markengerechte Gestaltung",
-            "UI/UX Optimierung",
-            "Barrierefreiheit (WCAG AA)",
-          ]
-        : [
-            "Responsive design",
-            "Brand-aligned styling",
-            "UI/UX optimization",
-            "Accessibility (WCAG AA)",
-          ],
+    features: [
+      "KI verständlich erklärt – ohne Hype",
+      "Chancen und Grenzen realistisch einordnen",
+      "Verantwortungsvoller Einsatz im Unternehmen",
+      "Konkrete Beispiele aus der Praxis",
+    ],
   },
   {
-    icon: Code,
+    icon: RefreshCw,
     titleKey: "services.development.title",
     descKey: "services.development.description",
-    features:
-      lang === "de"
-        ? [
-            "Astro & TypeScript",
-            "Blitzschnelle Ladezeiten",
-            "SEO-optimiert",
-            "Mehrsprachig",
-          ]
-        : [
-            "Astro & TypeScript",
-            "Lightning-fast load times",
-            "SEO optimized",
-            "Multilingual",
-          ],
+    features: [
+      "Orientierung im Wandel",
+      "Menschen für Veränderung gewinnen",
+      "Vom Plan in die Umsetzung",
+      "Widerstände als Signal verstehen",
+    ],
   },
   {
-    icon: Lightbulb,
+    icon: Users,
     titleKey: "services.consulting.title",
     descKey: "services.consulting.description",
-    features:
-      lang === "de"
-        ? [
-            "Digitale Strategie",
-            "Technologie-Beratung",
-            "Workshop-Formate",
-            "KI-Integration",
-          ]
-        : [
-            "Digital strategy",
-            "Technology consulting",
-            "Workshop formats",
-            "AI integration",
-          ],
+    features: [
+      "Führung im Zeitalter von KI",
+      "Vertrauen und psychologische Sicherheit",
+      "Klarheit in unsicheren Zeiten",
+      "Eine Kultur, die Zukunft ermöglicht",
+    ],
   },
 ];
 ---
@@ -103,7 +70,6 @@ const services = [
   description={t("services.description")}
   lang={lang}
   currentSlug={currentSlug}
-  alternateSlug={alternateSlug}
   headerVariant="on-dark"
 >
   <!-- Hero -->

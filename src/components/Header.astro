@@ -1,16 +1,14 @@
 ---
 import { Menu, X } from "@lucide/astro";
 import { getLocalizedPath, useTranslations, type Locale } from "~/i18n";
-import LanguageSwitcher from "~/components/LanguageSwitcher.astro";
 
 interface Props {
   lang: Locale;
   currentSlug?: string;
-  alternateSlug?: string;
   variant?: "on-dark" | "on-light";
 }
 
-const { lang, currentSlug, alternateSlug, variant = "on-light" } = Astro.props;
+const { lang, currentSlug, variant = "on-light" } = Astro.props;
 const { t } = useTranslations(lang);
 
 const homeHref = getLocalizedPath("", lang);
@@ -19,21 +17,11 @@ type NavItem = { labelKey: string; slug: string };
 
 const navItems: NavItem[] = [
   { labelKey: "navigation.home", slug: "" },
-  { labelKey: "navigation.about", slug: lang === "de" ? "ueber-uns" : "about" },
-  {
-    labelKey: "navigation.services",
-    slug: lang === "de" ? "leistungen" : "services",
-  },
+  { labelKey: "navigation.about", slug: "ueber-mich" },
+  { labelKey: "navigation.services", slug: "vortraege" },
   { labelKey: "navigation.blog", slug: "blog" },
-  {
-    labelKey: "navigation.caseStudies",
-    slug: lang === "de" ? "referenzen" : "case-studies",
-  },
-  { labelKey: "navigation.team", slug: "team" },
-  {
-    labelKey: "navigation.contact",
-    slug: lang === "de" ? "kontakt" : "contact",
-  },
+  { labelKey: "navigation.caseStudies", slug: "referenzen" },
+  { labelKey: "navigation.contact", slug: "kontakt" },
 ];
 
 function isActive(slug: string): boolean {
@@ -79,7 +67,7 @@ const hamburgerColor = isOnDark ? "text-text-on-dark" : "text-text-heading";
       <!-- Desktop nav -->
       <nav
         class="hidden md:flex items-center gap-6"
-        aria-label="Main navigation"
+        aria-label="Hauptnavigation"
       >
         {
           navItems.map((item) => (
@@ -94,14 +82,8 @@ const hamburgerColor = isOnDark ? "text-text-on-dark" : "text-text-heading";
         }
       </nav>
 
-      <!-- Right: language switcher + mobile hamburger -->
+      <!-- Right: mobile hamburger -->
       <div class="flex items-center gap-4">
-        <LanguageSwitcher
-          lang={lang}
-          currentSlug={currentSlug}
-          alternateSlug={alternateSlug}
-        />
-
         <button
           id="mobile-menu-toggle"
           type="button"
@@ -121,7 +103,7 @@ const hamburgerColor = isOnDark ? "text-text-on-dark" : "text-text-heading";
   <nav
     id="mobile-menu"
     class="hidden md:hidden border-t border-border/50"
-    aria-label="Mobile navigation"
+    aria-label="Mobile Navigation"
   >
     <div class="container py-4 flex flex-col gap-1">
       {

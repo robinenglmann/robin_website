@@ -1,9 +1,5 @@
 ---
-import {
-  getAllPaths,
-  findPageBySlug,
-  getAlternateCollectionSlug,
-} from "~/lib/page-registry";
+import { getAllPaths, findPageBySlug } from "~/lib/page-registry";
 import type { Locale, CollectionName } from "~/lib/page-registry";
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
@@ -53,7 +49,6 @@ type AstroPageDefault =
 
 let collectionTitle = "";
 let collectionDescription = "";
-let collectionAlternateSlug: string | undefined;
 let blogPostingLd: Record<string, unknown> | undefined;
 let jobPostingLd: Record<string, unknown> | undefined;
 let eventLd: Record<string, unknown> | undefined;
@@ -80,13 +75,6 @@ if (props.kind === "collection-detail") {
         : typeof data["quote"] === "string"
           ? (data["quote"] as string)
           : "";
-
-  const { translationKey } = data as { translationKey: string };
-  collectionAlternateSlug = await getAlternateCollectionSlug(
-    lang,
-    props.collection,
-    translationKey,
-  );
 
   if (props.collection === "blog") {
     const blogEntry = props.entry as CollectionEntry<"blog">;
@@ -136,7 +124,6 @@ if (props.kind === "collection-detail") {
       description={collectionDescription}
       lang={lang}
       currentSlug={slug}
-      alternateSlug={collectionAlternateSlug}
     >
       {blogPostingLd && (
         <StructuredData

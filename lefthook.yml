@@ -3,9 +3,6 @@ pre-commit:
   commands:
     lint-staged:
       run: pnpm lint-staged
-    bilingual-check:
-      run: node scripts/check-bilingual.mjs
-      glob: "src/content/**/*.md"
 
 commit-msg:
   commands:

@@ -36,20 +36,20 @@ import Footer from "~/components/Footer.astro";
 
 ## i18n keys
 
-| Key                   | DE                                       | EN                             |
-| --------------------- | ---------------------------------------- | ------------------------------ |
-| `site.name`           | Greenleaf Digital                        | Greenleaf Digital              |
-| `navigation.home`     | Startseite                               | Home                           |
-| `navigation.about`    | Über uns                                 | About                          |
-| `navigation.services` | Leistungen                               | Services                       |
-| `navigation.blog`     | Blog                                     | Blog                           |
-| `navigation.team`     | Team                                     | Team                           |
-| `navigation.contact`  | Kontakt                                  | Contact                        |
-| `footer.privacy`      | Datenschutz                              | Privacy Policy                 |
-| `footer.imprint`      | Impressum                                | Imprint                        |
-| `footer.copyright`    | © {year} Greenleaf Digital. Alle Rechte… | © {year} Greenleaf Digital…    |
-| `footer.builtWith`    | Erstellt mit passionfruit                | Built with passionfruit        |
-| `site.tagline`        | Digitale Lösungen mit Leidenschaft       | Digital solutions with passion |
+| Key                   | DE                                    | EN                             |
+| --------------------- | ------------------------------------- | ------------------------------ |
+| `site.name`           | Robin Englmann                        | Robin Englmann                 |
+| `navigation.home`     | Startseite                            | Home                           |
+| `navigation.about`    | Über uns                              | About                          |
+| `navigation.services` | Leistungen                            | Services                       |
+| `navigation.blog`     | Blog                                  | Blog                           |
+| `navigation.team`     | Team                                  | Team                           |
+| `navigation.contact`  | Kontakt                               | Contact                        |
+| `footer.privacy`      | Datenschutz                           | Privacy Policy                 |
+| `footer.imprint`      | Impressum                             | Imprint                        |
+| `footer.copyright`    | © {year} Robin Englmann. Alle Rechte… | © {year} Robin Englmann…       |
+| `footer.builtWith`    | Erstellt mit passionfruit             | Built with passionfruit        |
+| `site.tagline`        | Digitale Lösungen mit Leidenschaft    | Digital solutions with passion |
 
 Nav links (`navLinks`) and legal links (`legalLinks`) are built inline in the component frontmatter from `getLocalizedPath` + `t()`. Localized legal slugs: `datenschutz` ↔ `privacy`, `impressum` ↔ `imprint`. These must stay in sync with `src/lib/page-registry.ts`.
 

@@ -8,46 +8,24 @@ interface FAQ {
 const faqs: Record<Locale, FAQ[]> = {
   de: [
     {
-      question: "Brauche ich Programmierkenntnisse?",
+      question: "Wie kann ich Robin Englmann für eine Veranstaltung anfragen?",
       answer:
-        "Nein! Mit Claude Code können Sie Ihre Website per Konversation erstellen und pflegen. Beschreiben Sie einfach, was Sie möchten.",
+        "Am einfachsten über das Kontaktformular oder per E-Mail. Nennen Sie kurz Datum, Ort, Format und Zielgruppe – Sie erhalten zeitnah eine Rückmeldung.",
     },
     {
-      question: "Was kostet das Hosting?",
+      question: "Welche Themen deckt Robin ab?",
       answer:
-        "Statische Websites können kostenlos auf Plattformen wie Cloudflare Pages, Vercel oder Netlify gehostet werden.",
+        "Im Mittelpunkt stehen künstliche Intelligenz, Transformation und Führungskultur – und die Frage, wie diese drei Themen in Organisationen zusammenwirken.",
     },
     {
-      question: "Kann ich meine bestehende Domain verwenden?",
+      question: "Wird der Vortrag an unsere Veranstaltung angepasst?",
       answer:
-        "Ja, Sie können jede Domain mit Ihrem Hosting-Anbieter verbinden. Die Einrichtung dauert nur wenige Minuten.",
+        "Ja. Inhalte, Beispiele und Schwerpunkte werden im Vorgespräch auf Ihr Publikum und den Anlass abgestimmt.",
     },
     {
-      question: "Ist die Website DSGVO-konform?",
+      question: "Sind auch Online-Formate möglich?",
       answer:
-        "Ja. Das Cookie-Consent-Banner ist eingebaut, und die Analytics (PostHog) laufen auf EU-Servern. Alle Daten bleiben in Europa.",
-    },
-  ],
-  en: [
-    {
-      question: "Do I need programming skills?",
-      answer:
-        "No! With Claude Code, you can create and maintain your website through conversation. Just describe what you want.",
-    },
-    {
-      question: "What does hosting cost?",
-      answer:
-        "Static websites can be hosted for free on platforms like Cloudflare Pages, Vercel, or Netlify.",
-    },
-    {
-      question: "Can I use my existing domain?",
-      answer:
-        "Yes, you can connect any domain with your hosting provider. Setup takes just a few minutes.",
-    },
-    {
-      question: "Is the website GDPR-compliant?",
-      answer:
-        "Yes. The cookie consent banner is built in, and analytics (PostHog) run on EU servers. All data stays in Europe.",
+        "Ja, Vorträge und Impulse sind sowohl vor Ort als auch online oder hybrid möglich.",
     },
   ],
 };

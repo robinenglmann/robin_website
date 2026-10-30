@@ -20,21 +20,23 @@ Premium, confident, modern — intentional, not sterile, not flashy. Depth comes
 
 ### Core Tokens
 
-| Token                           | Hex       | Purpose                                   |
-| ------------------------------- | --------- | ----------------------------------------- |
-| `--color-surface`               | `#fafbfc` | Page background (not pure white)          |
-| `--color-surface-elevated`      | `#ffffff` | Cards, elevated surfaces                  |
-| `--color-surface-dark`          | `#0c0c1d` | Dark sections, heroes, footer             |
-| `--color-surface-dark-elevated` | `#14142b` | Elevated dark surfaces                    |
-| `--color-text`                  | `#3d4156` | Body text                                 |
-| `--color-text-heading`          | `#12132d` | Headings (near-black with blue tint)      |
-| `--color-text-on-dark`          | `#f0f0f5` | Text on dark backgrounds                  |
-| `--color-accent`                | `#6366f1` | Primary accent (swappable via `/onboard`) |
-| `--color-accent-hover`          | `#4f46e5` | Hover state                               |
-| `--color-accent-glow`           | `#818cf8` | Lighter accent for glows and gradients    |
-| `--color-warm`                  | `#f59e0b` | Warm accent (from passionfruit flesh)     |
-| `--color-border`                | `#e2e4eb` | Borders, dividers                         |
-| `--color-muted`                 | `#6b7280` | Secondary text, captions                  |
+| Token                           | Hex       | Purpose                                  |
+| ------------------------------- | --------- | ---------------------------------------- |
+| `--color-surface`               | `#fafbfc` | Page background (not pure white)         |
+| `--color-surface-elevated`      | `#ffffff` | Cards, elevated surfaces                 |
+| `--color-surface-dark`          | `#0c0c1d` | Dark sections, heroes, footer            |
+| `--color-surface-dark-elevated` | `#14142b` | Elevated dark surfaces                   |
+| `--color-text`                  | `#3d4156` | Body text                                |
+| `--color-text-heading`          | `#12132d` | Headings (near-black with blue tint)     |
+| `--color-text-on-dark`          | `#f0f0f5` | Text on dark backgrounds                 |
+| `--color-accent`                | `#f59e0b` | Primary accent (amber)                   |
+| `--color-accent-hover`          | `#d97706` | Hover state                              |
+| `--color-accent-glow`           | `#fbbf24` | Lighter accent for glows and gradients   |
+| `--color-warm`                  | `#ea580c` | Warm orange, pairs with the amber accent |
+| `--color-border`                | `#e2e4eb` | Borders, dividers                        |
+| `--color-muted`                 | `#6b7280` | Secondary text, captions                 |
+
+**Contrast rule:** amber is too light for white text. Text on `bg-accent` (primary buttons, cookie banner) uses `text-surface-dark`, never `text-white`.
 
 Overlay scrims and shadow lifts have their own tokens (`--color-overlay-scrim-*`, `--color-shadow-lift`) — use those instead of hand-rolled `rgba()`.
 
