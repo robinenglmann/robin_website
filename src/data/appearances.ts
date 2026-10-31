@@ -34,7 +34,7 @@ const appearances: Record<Locale, Appearance[]> = {
     },
     {
       event: "Offenes FVI-Treffen bei der DEUTZ AG",
-      host: "FVI",
+      host: "Forum Vision Instandhaltung (FVI)",
       date: "2025-09-09",
       city: "Köln",
       talk: "Digitale Transformation in der Technik (Instandhaltung): Die echten Pain Points und wie sie die Digitalisierung hemmen",
@@ -61,7 +61,8 @@ const videos: Record<Locale, VideoAppearance[]> = {
       videoId: "U3LhlVTYafs",
       title:
         "Das FVI-Expertenfrühstück – Folge 21: Arbeitssicherheit neu gedacht",
-      channel: "Jens Reißenweber",
+      channel:
+        "Forum Vision Instandhaltung – Gesprächsrunde zur Arbeitssicherheit",
     },
   ],
 };
