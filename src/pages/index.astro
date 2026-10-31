@@ -6,6 +6,7 @@ import FAQ from "~/components/sections/FAQ.astro";
 import { useTranslations, getLocalizedPath } from "~/i18n";
 import { getTestimonials } from "~/data/testimonials";
 import { getFAQs } from "~/data/faqs";
+import { getAppearances } from "~/data/appearances";
 import {
   BrainCircuit,
   RefreshCw,
@@ -19,6 +20,7 @@ const lang = "de" as const;
 const { t } = useTranslations(lang);
 const testimonials = getTestimonials(lang);
 const faqItems = getFAQs(lang);
+const appearances = getAppearances(lang);
 const contactHref = getLocalizedPath("kontakt", lang);
 const servicesHref = getLocalizedPath("vortraege", lang);
 ---
@@ -186,6 +188,41 @@ const servicesHref = getLocalizedPath("vortraege", lang);
           </p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ STAGES ═══════════ -->
+  <section class="py-20 md:py-28 border-t border-border/50">
+    <div class="container">
+      <div class="flex flex-wrap items-end justify-between gap-6 anim-slide-up">
+        <div class="max-w-2xl">
+          <p class="eyebrow">{t("appearances.eyebrow")}</p>
+          <h2 class="text-h2 text-text-heading mt-4">
+            {t("appearances.title")}
+          </h2>
+        </div>
+        <Button
+          href={getLocalizedPath("referenzen", lang)}
+          variant="secondary"
+          class="group"
+        >
+          {t("navigation.caseStudies")}
+          <ArrowRight
+            class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"
+          />
+        </Button>
+      </div>
+      <ul class="grid gap-6 sm:grid-cols-3 mt-12">
+        {
+          appearances.map((item, i) => (
+            <li class="card anim-card-enter" style={`--delay: ${i * 100}ms`}>
+              <p class="text-sm text-muted">{item.city}</p>
+              <p class="text-h3 text-text-heading mt-2">{item.event}</p>
+              <p class="text-muted text-sm mt-2">{item.host}</p>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </section>
 

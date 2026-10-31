@@ -238,7 +238,7 @@
   },
   "caseStudies": {
     "title": "Referenzen",
-    "description": "Stimmen von Veranstaltern und Kunden.",
+    "description": "Ausgewählte Auftritte bei Konferenzen, Messen und Fachverbänden.",
     "noResults": "Referenzen folgen in Kürze.",
     "readMore": "Mehr lesen",
     "watchInterview": "Interview ansehen",
@@ -277,5 +277,12 @@
       "title": "Digitale Transformation im Mittelstand: Die echten Pain Points und wie sie die Digitalisierung hemmen",
       "description": "Ein ehrlicher Blick auf die Hürden, die Digitalisierung im Mittelstand ausbremsen – und auf pragmatische Wege, sie zu überwinden."
     }
+  },
+  "appearances": {
+    "eyebrow": "Bühnen",
+    "title": "Hier habe ich bereits gesprochen",
+    "talkLabel": "Vortrag:",
+    "videoEyebrow": "Video",
+    "videoTitle": "Robin im Gespräch"
   }
 }
