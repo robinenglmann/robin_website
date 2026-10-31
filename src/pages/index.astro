@@ -13,7 +13,7 @@ import {
   ArrowRight,
   Quote,
 } from "@lucide/astro";
-import heroImage from "~/assets/home/hero.png";
+import heroImage from "~/assets/home/robin-vortrag.jpg";
 
 const lang = "de" as const;
 const { t } = useTranslations(lang);
@@ -106,7 +106,7 @@ const servicesHref = getLocalizedPath("vortraege", lang);
           </div>
           <Image
             src={heroImage}
-            alt=""
+            alt="Robin Englmann bei einem Vortrag zur digitalen Transformation im Mittelstand"
             class="relative rounded-2xl shadow-2xl shadow-accent/10 ring-1 ring-white/10"
             widths={[400, 600, 800]}
             sizes="(min-width: 1024px) 50vw, 100vw"

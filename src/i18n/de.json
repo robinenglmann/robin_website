@@ -130,7 +130,7 @@
   },
   "services": {
     "title": "Vorträge",
-    "description": "Keynotes und Impulse zu künstlicher Intelligenz, Transformation und Führungskultur.",
+    "description": "Drei Keynotes zu Führung, Kultur und Digitalisierung – jeweils abgestimmt auf Ihr Publikum.",
     "webDesign": {
       "title": "Künstliche Intelligenz",
       "description": "Was KI heute wirklich kann, wo ihre Grenzen liegen und wie Unternehmen sie verantwortungsvoll einsetzen."
@@ -259,5 +259,23 @@
   "social": {
     "linkedin": "https://www.linkedin.com/in/robin-englmann-811532124/",
     "instagram": "https://www.instagram.com/robin.biaround/"
+  },
+  "keynotes": {
+    "audienceLabel": "Ideal für",
+    "signature": {
+      "label": "Signature-Keynote",
+      "title": "Erfahrung, Erwartung und KI: Führen, wenn drei Welten in einem Team arbeiten",
+      "description": "Erfahrene Kolleginnen und Kollegen, eine Generation mit neuen Erwartungen und KI als neues Teammitglied: Diese Keynote zeigt, wie Führung diese drei Welten verbindet, statt sie gegeneinander auszuspielen."
+    },
+    "industry": {
+      "label": "Industrie-Keynote",
+      "title": "Die Software ist nicht das Problem: Warum Digitalisierung an der Kultur scheitert",
+      "description": "Neue Systeme allein verändern nichts. Diese Keynote zeigt, warum Digitalisierungsprojekte selten an der Technik scheitern, sondern an Gewohnheiten, Strukturen und fehlendem Vertrauen – und was Unternehmen dagegen tun können."
+    },
+    "midmarket": {
+      "label": "Mittelstand-Keynote",
+      "title": "Digitale Transformation im Mittelstand: Die echten Pain Points und wie sie die Digitalisierung hemmen",
+      "description": "Ein ehrlicher Blick auf die Hürden, die Digitalisierung im Mittelstand ausbremsen – und auf pragmatische Wege, sie zu überwinden."
+    }
   }
 }

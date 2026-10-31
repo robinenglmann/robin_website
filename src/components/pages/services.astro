@@ -5,10 +5,11 @@ import type { Locale } from "~/i18n";
 import { useTranslations, getLocalizedPath } from "~/i18n";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import Button from "~/components/Button.astro";
+import talkPhoto from "~/assets/home/robin-vortrag.jpg";
 import {
-  BrainCircuit,
-  RefreshCw,
   Users,
+  Factory,
+  Building2,
   ArrowRight,
   CheckCircle,
 } from "@lucide/astro";
@@ -30,37 +31,20 @@ const heroImage = pagesEntries.find(
 
 const services = [
   {
-    icon: BrainCircuit,
-    titleKey: "services.webDesign.title",
-    descKey: "services.webDesign.description",
-    features: [
-      "KI verständlich erklärt – ohne Hype",
-      "Chancen und Grenzen realistisch einordnen",
-      "Verantwortungsvoller Einsatz im Unternehmen",
-      "Konkrete Beispiele aus der Praxis",
-    ],
-  },
-  {
-    icon: RefreshCw,
-    titleKey: "services.development.title",
-    descKey: "services.development.description",
-    features: [
-      "Orientierung im Wandel",
-      "Menschen für Veränderung gewinnen",
-      "Vom Plan in die Umsetzung",
-      "Widerstände als Signal verstehen",
-    ],
-  },
-  {
     icon: Users,
-    titleKey: "services.consulting.title",
-    descKey: "services.consulting.description",
-    features: [
-      "Führung im Zeitalter von KI",
-      "Vertrauen und psychologische Sicherheit",
-      "Klarheit in unsicheren Zeiten",
-      "Eine Kultur, die Zukunft ermöglicht",
-    ],
+    prefix: "keynotes.signature",
+    audience: ["Führungskräftetage", "HR-Events", "Unternehmerverbände"],
+  },
+  {
+    icon: Factory,
+    prefix: "keynotes.industry",
+    audience: ["IDPM", "IHK", "Mittelstandsforen"],
+  },
+  {
+    icon: Building2,
+    prefix: "keynotes.midmarket",
+    audience: ["Mittelständische Unternehmen", "Wirtschaftsverbände"],
+    photo: talkPhoto,
   },
 ];
 ---
@@ -136,12 +120,18 @@ const services = [
                 <div class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mb-6">
                   <svc.icon class="w-7 h-7 text-accent" />
                 </div>
-                <h2 class="text-h2 text-text-heading">{t(svc.titleKey)}</h2>
+                <p class="eyebrow">{t(`${svc.prefix}.label`)}</p>
+                <h2 class="text-h2 text-text-heading mt-3">
+                  {`${t("caseStudies.quoteOpen")}${t(`${svc.prefix}.title`)}${t("caseStudies.quoteClose")}`}
+                </h2>
                 <p class="text-body-lg text-muted mt-4 leading-relaxed">
-                  {t(svc.descKey)}
+                  {t(`${svc.prefix}.description`)}
                 </p>
-                <ul class="mt-8 flex flex-col gap-3">
-                  {svc.features.map((feature) => (
+                <p class="mt-8 text-sm font-semibold text-text-heading">
+                  {t("keynotes.audienceLabel")}
+                </p>
+                <ul class="mt-3 flex flex-col gap-3">
+                  {svc.audience.map((feature) => (
                     <li class="flex items-center gap-3 text-text">
                       <CheckCircle class="w-5 h-5 text-accent flex-shrink-0" />
                       {feature}
@@ -158,7 +148,17 @@ const services = [
                       : "from-warm/5 to-accent/5"
                 } flex items-center justify-center ${i % 2 === 1 ? "lg:order-1" : ""}`}
               >
-                <svc.icon class="w-24 h-24 text-accent/20" />
+                {"photo" in svc && svc.photo ? (
+                  <Image
+                    src={svc.photo}
+                    alt="Robin Englmann hält die Keynote zur digitalen Transformation im Mittelstand"
+                    class="w-full h-full object-cover"
+                    widths={[400, 600, 800]}
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                  />
+                ) : (
+                  <svc.icon class="w-24 h-24 text-accent/20" />
+                )}
               </div>
             </div>
           ))
