@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import { useTranslations, type Locale } from "~/i18n";
 import BaseLayout from "~/layouts/BaseLayout.astro";
@@ -92,39 +93,57 @@ if (selectedTags.length > 0) {
       <ol class="mt-12 flex flex-col gap-6">
         {
           appearances.map((item, i) => (
-            <li class="card anim-card-enter" style={`--delay: ${i * 100}ms`}>
-              <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted">
-                <span class="inline-flex items-center gap-1.5">
-                  <CalendarDays
-                    class="w-4 h-4 text-accent"
-                    aria-hidden="true"
-                  />
-                  {formatDate(new Date(item.date), lang)}
-                </span>
-                <span class="inline-flex items-center gap-1.5">
-                  <MapPin class="w-4 h-4 text-accent" aria-hidden="true" />
-                  {item.city}
-                </span>
+            <li
+              class:list={[
+                "card anim-card-enter",
+                item.photo && "grid gap-6 md:grid-cols-[1fr_16rem] items-start",
+              ]}
+              style={`--delay: ${i * 100}ms`}
+            >
+              <div>
+                <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted">
+                  <span class="inline-flex items-center gap-1.5">
+                    <CalendarDays
+                      class="w-4 h-4 text-accent"
+                      aria-hidden="true"
+                    />
+                    {formatDate(new Date(item.date), lang)}
+                  </span>
+                  <span class="inline-flex items-center gap-1.5">
+                    <MapPin class="w-4 h-4 text-accent" aria-hidden="true" />
+                    {item.city}
+                  </span>
+                </div>
+                <h3 class="text-h3 text-text-heading mt-3">{item.event}</h3>
+                <p class="text-muted mt-1">{item.host}</p>
+                <p class="text-text mt-4 leading-relaxed">
+                  <span class="font-semibold text-text-heading">
+                    {t("appearances.talkLabel")}
+                  </span>{" "}
+                  {`${t("caseStudies.quoteOpen")}${item.talk}${t("caseStudies.quoteClose")}`}
+                </p>
+                {item.sourceUrl && (
+                  <a
+                    href={item.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 mt-4 text-sm font-medium text-accent-hover hover:underline underline-offset-2"
+                  >
+                    {item.sourceLabel}
+                    <ExternalLink class="w-3.5 h-3.5" aria-hidden="true" />
+                    <span class="sr-only">({t("careers.opensInNewTab")})</span>
+                  </a>
+                )}
               </div>
-              <h3 class="text-h3 text-text-heading mt-3">{item.event}</h3>
-              <p class="text-muted mt-1">{item.host}</p>
-              <p class="text-text mt-4 leading-relaxed">
-                <span class="font-semibold text-text-heading">
-                  {t("appearances.talkLabel")}
-                </span>{" "}
-                {`${t("caseStudies.quoteOpen")}${item.talk}${t("caseStudies.quoteClose")}`}
-              </p>
-              {item.sourceUrl && (
-                <a
-                  href={item.sourceUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center gap-1.5 mt-4 text-sm font-medium text-accent-hover hover:underline underline-offset-2"
-                >
-                  {item.sourceLabel}
-                  <ExternalLink class="w-3.5 h-3.5" aria-hidden="true" />
-                  <span class="sr-only">({t("careers.opensInNewTab")})</span>
-                </a>
+              {item.photo && (
+                <Image
+                  src={item.photo}
+                  alt={item.photoAlt ?? ""}
+                  class="w-full aspect-[4/3] object-cover rounded-[var(--radius-md)] md:order-last order-first"
+                  widths={[320, 520]}
+                  sizes="(min-width: 768px) 16rem, 100vw"
+                  loading="lazy"
+                />
               )}
             </li>
           ))

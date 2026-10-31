@@ -6,6 +6,8 @@ import { useTranslations, getLocalizedPath } from "~/i18n";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import Button from "~/components/Button.astro";
 import talkPhoto from "~/assets/home/robin-vortrag.jpg";
+import audiencePhoto from "~/assets/talks/robin-koeln-publikum.jpg";
+import culturePhoto from "~/assets/talks/robin-koeln-kultur.jpg";
 import {
   Users,
   Factory,
@@ -34,17 +36,23 @@ const services = [
     icon: Users,
     prefix: "keynotes.signature",
     audience: ["Führungskräftetage", "HR-Events", "Unternehmerverbände"],
+    photo: audiencePhoto,
+    photoAlt: "Robin Englmann spricht vor vollem Saal",
   },
   {
     icon: Factory,
     prefix: "keynotes.industry",
     audience: ["IDPM", "IHK", "Mittelstandsforen"],
+    photo: culturePhoto,
+    photoAlt: "Robin Englmann vor einer Folie zum Thema Verantwortungskultur",
   },
   {
     icon: Building2,
     prefix: "keynotes.midmarket",
     audience: ["Mittelständische Unternehmen", "Wirtschaftsverbände"],
     photo: talkPhoto,
+    photoAlt:
+      "Robin Englmann hält die Keynote zur digitalen Transformation im Mittelstand",
   },
 ];
 ---
@@ -148,10 +156,10 @@ const services = [
                       : "from-warm/5 to-accent/5"
                 } flex items-center justify-center ${i % 2 === 1 ? "lg:order-1" : ""}`}
               >
-                {"photo" in svc && svc.photo ? (
+                {svc.photo ? (
                   <Image
                     src={svc.photo}
-                    alt="Robin Englmann hält die Keynote zur digitalen Transformation im Mittelstand"
+                    alt={svc.photoAlt}
                     class="w-full h-full object-cover"
                     widths={[400, 600, 800]}
                     sizes="(min-width: 1024px) 50vw, 100vw"

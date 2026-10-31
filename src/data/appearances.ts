@@ -1,4 +1,7 @@
+import type { ImageMetadata } from "astro";
 import type { Locale } from "~/i18n";
+import ansbachPhoto from "~/assets/home/robin-vortrag.jpg";
+import koelnPhoto from "~/assets/talks/robin-koeln-publikum.jpg";
 
 export interface Appearance {
   /** Name of the event or format. */
@@ -12,6 +15,8 @@ export interface Appearance {
   /** Public source that documents the appearance (program, agenda, report). */
   sourceUrl?: string;
   sourceLabel?: string;
+  photo?: ImageMetadata;
+  photoAlt?: string;
 }
 
 export interface VideoAppearance {
@@ -31,6 +36,8 @@ const appearances: Record<Locale, Appearance[]> = {
       talk: "Digitale Transformation im Mittelstand: Die echten Pain Points und wie sie die Digitalisierung hemmen",
       sourceUrl: "https://www.endlich.it/produktionsfit-2026/",
       sourceLabel: "Veranstaltungsbericht",
+      photo: ansbachPhoto,
+      photoAlt: "Robin Englmann bei Produktionsfit 2026 in Ansbach",
     },
     {
       event: "Offenes FVI-Treffen bei der DEUTZ AG",
@@ -41,6 +48,8 @@ const appearances: Record<Locale, Appearance[]> = {
       sourceUrl:
         "https://www.ipih.de/system/files/upload/2025/termin/agenda_fvi_treffen_09.09.2025.pdf",
       sourceLabel: "Agenda (PDF)",
+      photo: koelnPhoto,
+      photoAlt: "Robin Englmann vor vollem Saal beim FVI-Treffen in Köln",
     },
     {
       event: "automatica 2025",
