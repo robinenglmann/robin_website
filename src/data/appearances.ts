@@ -67,6 +67,12 @@ const appearances: Record<Locale, Appearance[]> = {
 const videos: Record<Locale, VideoAppearance[]> = {
   de: [
     {
+      videoId: "p6ZYA4Xyf8s",
+      title:
+        "Wie ein Operations Manager aus Beraterfrust ein eigenes Unternehmen gebaut hat",
+      channel: "Maintenance Podcast – Lead the Asset",
+    },
+    {
       videoId: "U3LhlVTYafs",
       title:
         "Das FVI-Expertenfrühstück – Folge 21: Arbeitssicherheit neu gedacht",
