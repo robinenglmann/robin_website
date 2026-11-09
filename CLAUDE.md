@@ -177,6 +177,8 @@ Options: `--size` (1536x1024 for landscapes, 1024x1536 for portraits), `--qualit
 
 ## 14. Deployment
 
+**This site deploys as a Cloudflare Worker with static assets** (project `robin-website`, connected to GitHub via Workers Builds). Config lives in `wrangler.jsonc` (`assets.directory: ./dist`, 404 page, trailing slashes); `wrangler` is a devDependency and `workerd` is allowed to run its install script in `pnpm-workspace.yaml` — without that, pnpm blocks the build script and the deploy step fails. Build command `pnpm build`, deploy command `npx wrangler deploy`. The Pages-oriented notes below (GitHub Actions deploy job, `functions/`) do not apply to this setup.
+
 **Default host: Cloudflare Pages** (free, fast, automatic HTTPS). Run `/deploy` to set it up.
 
 **Required GitHub secrets/variables:**
