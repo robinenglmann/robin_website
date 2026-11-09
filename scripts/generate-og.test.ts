@@ -103,15 +103,11 @@ function readPngHeader(filePath: string): PngHeader {
 // ---------------------------------------------------------------------------
 
 test("7.1 default run writes both locales", () => {
+  // The fixture project is bilingual; the real site may be single-locale.
+  const projectRoot = setupFixtureRoot();
   const outDir = mkTmpOutDir();
   try {
-    // The fixture project is bilingual; the real site may be single-locale.
-    const result = runCli([
-      "--project-root",
-      FIXTURE_ROOT,
-      "--out-dir",
-      outDir,
-    ]);
+    const result = runCli(["--project-root", projectRoot, "--out-dir", outDir]);
     assert.equal(
       result.status,
       0,
@@ -130,7 +126,7 @@ test("7.1 default run writes both locales", () => {
       assert.equal(header.height, 630, `height mismatch in ${path}`);
     }
   } finally {
-    cleanup(outDir);
+    cleanup(outDir, projectRoot);
   }
 });
 
@@ -167,11 +163,12 @@ test("7.2 --lang de writes only de", () => {
 // ---------------------------------------------------------------------------
 
 test("7.3 --lang en writes only en", () => {
+  const projectRoot = setupFixtureRoot();
   const outDir = mkTmpOutDir();
   try {
     const result = runCli([
       "--project-root",
-      FIXTURE_ROOT,
+      projectRoot,
       "--out-dir",
       outDir,
       "--lang",
@@ -193,7 +190,7 @@ test("7.3 --lang en writes only en", () => {
       "expected og-default-de.png NOT to exist",
     );
   } finally {
-    cleanup(outDir);
+    cleanup(outDir, projectRoot);
   }
 });
 
