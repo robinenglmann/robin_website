@@ -1,9 +1,8 @@
 import de from "./de.json";
-import en from "./en.json";
 
-export type Locale = "de" | "en";
+export type Locale = "de";
 
-export const LOCALES = ["de", "en"] as const;
+export const LOCALES = ["de"] as const;
 
 export const DEFAULT_LOCALE: Locale = "de";
 
@@ -15,7 +14,7 @@ type TranslationValue =
   | { [k: string]: TranslationValue };
 type TranslationDict = { [k: string]: TranslationValue };
 
-const translations: Record<Locale, TranslationDict> = { de, en };
+const translations: Record<Locale, TranslationDict> = { de };
 
 function getNestedValue(
   obj: TranslationDict,
@@ -71,9 +70,9 @@ export function useTranslations(locale: Locale) {
 }
 
 export function getLocalizedPath(path: string, locale: Locale): string {
-  // Deutsch am Apex (kein Prefix), Englisch unter /en; trailing slash always.
+  // Single-locale site: German at the apex, trailing slash always.
+  void locale;
   const clean = path.replace(/^\/+/, "").replace(/\/+$/, "");
-  const prefix = locale === "de" ? "" : "/en";
-  if (!clean) return prefix === "" ? "/" : `${prefix}/`;
-  return `${prefix}/${clean}/`;
+  if (!clean) return "/";
+  return `/${clean}/`;
 }

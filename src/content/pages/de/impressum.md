@@ -1,29 +1,22 @@
 ---
 translationKey: "imprint"
 title: "Impressum"
-description: "Angaben gemäß § 5 TMG."
+description: "Angaben gemäß § 5 DDG."
 ---
 
-## Angaben gemäß § 5 TMG
+## Angaben gemäß § 5 DDG
 
-Greenleaf Digital
-Musterstraße 1
-12345 Musterstadt
+Robin Englmann
+Heinrich-Heine-Str. 14
+85092 Kösching
 
 ## Kontakt
 
-Telefon: +49 123 456 789
-E-Mail: hello@example.com
+Telefon: 0179 4256013
+E-Mail: robin.englmann@biaround.de
 
-## Umsatzsteuer-ID
+## Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
 
-Umsatzsteuer-Identifikationsnummer gemäß §27a Umsatzsteuergesetz:
-DE123456789
-
-## Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
-
-Anna Müller
-Musterstraße 1
-12345 Musterstadt
-
-_Dieses Impressum ist ein Platzhalter. Ersetzen Sie es durch Ihr eigenes, rechtskonformes Impressum._
+Robin Englmann
+Heinrich-Heine-Str. 14
+85092 Kösching

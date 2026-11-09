@@ -2,9 +2,15 @@
 
 ## 1. Project
 
-**This repo is the passionfruit template itself, not a site built from it.** passionfruit is a template that turns Claude Code into a web developer for non-technical users: they describe what they want, Claude builds it.
+Speaker homepage of **Robin Englmann** — Keynote Speaker für KI, Transformation und Führungskultur. Built from the passionfruit template and personalized via `/onboard`.
 
-The "Greenleaf Digital" branding, the blog posts, the team members, the services copy — all of that is **fixture content** that downstream consumers replace via `/onboard` and `/brand`. Treat it as example data, not customer content. When evaluating changes, ask "does this improve the template?", not "does Greenleaf need this?"
+- **Language:** German only (single locale, no `/en/` routes, no language switcher, no hreflang).
+- **Pages:** Startseite, Über mich (`/ueber-mich/`), Vorträge (`/vortraege/`, registry key `services`), Blog, Referenzen (`/referenzen/`), Kontakt, Datenschutz, Impressum.
+- **Collections in use:** `blog`, `pages`, `caseStudies`. `team`, `events`, `careers` exist in the schema but are empty and have no index page.
+- **Accent:** amber `#f59e0b` (see STYLE_GUIDE.md contrast rule).
+- **Positioning:** Praktiker statt HR-Theoretiker — 15+ Jahre Führung in Produktion/Schichtbetrieb, Operator → Head of Operations. Tone: bodenständig, direkt, kein Buzzword-Bingo. Roles matter more than company names. BIaround only as a side note. No generation names in talk titles.
+- **Data files:** stage appearances and videos live in `src/data/appearances.ts` (rendered on Referenzen + homepage teaser). Photos from talks: `src/assets/{home,talks,about,videos}/`; originals in `../material/fotos/` (outside the repo). Employer/client logos (Hopfenveredlung, NATECO2) are retouched out of photos.
+- **Open items:** add organizer testimonials (`src/data/testimonials.ts`, `src/content/caseStudies/de/`), set the real domain in `astro.config.mjs`, have Datenschutz legally reviewed, confirm photo usage rights/credits.
 
 ## 2. Self-improvement rule
 
@@ -41,13 +47,9 @@ This is not optional. These files are the project's memory. If they drift from r
 | Font            | Inter Variable (self-hosted via `@fontsource-variable/inter`)                                    |
 | React           | Dependency present; only use when interactivity genuinely demands it                             |
 
-## 5. Bilingual rule
+## 5. Language rule
 
-**Hard rule: every page and every collection entry must exist in both DE and EN.**
-
-- Pairing is via `translationKey` frontmatter field — same value across both locale files.
-- `scripts/check-bilingual.mjs` runs as `prebuild` and exits 1 if any entry is monolingual.
-- Never commit a single-locale entry. Always update both DE and EN in the same commit.
+**This site is German only.** `Locale` is `"de"`, `src/i18n/de.json` is the only string file, and content lives under `src/content/<collection>/de/`. The bilingual check is no longer part of `prebuild` or the commit hooks. Keep `translationKey` in frontmatter — the schemas still require it.
 
 ## 6. Content workflows
 

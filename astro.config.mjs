@@ -33,13 +33,10 @@ export default defineConfig({
     processor: satteri({ hastPlugins: [externalLinks] }),
   },
   i18n: {
-    locales: ["de", "en"],
+    locales: ["de"],
     defaultLocale: "de",
     routing: {
       prefixDefaultLocale: false,
-    },
-    fallback: {
-      en: "de",
     },
   },
   integrations: [react()],

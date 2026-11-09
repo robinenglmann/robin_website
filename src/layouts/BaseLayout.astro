@@ -1,8 +1,7 @@
 ---
 import "~/styles/global.css";
 import { ClientRouter } from "astro:transitions";
-import { getAlternateLocaleSlug } from "~/lib/page-registry";
-import { getLocalizedPath, useTranslations, type Locale } from "~/i18n";
+import { useTranslations, type Locale } from "~/i18n";
 import Header from "~/components/Header.astro";
 import Footer from "~/components/Footer.astro";
 import CookieConsent from "~/components/CookieConsent.astro";
@@ -14,10 +13,8 @@ interface Props {
   title: string;
   description: string;
   lang: Locale;
-  /** Used to compute the hreflang alternate URL via the registry */
+  /** Current page slug — used to highlight the active navigation item */
   currentSlug?: string;
-  /** Pre-resolved alternate slug for collection detail pages (bypasses registry lookup) */
-  alternateSlug?: string;
   /** Optional OG image URL/path */
   ogImage?: string;
   /** Header colour variant. 'on-dark' for pages whose first section is dark. Defaults to 'on-light'. */
@@ -31,7 +28,6 @@ const {
   description,
   lang,
   currentSlug,
-  alternateSlug,
   ogImage,
   headerVariant = "on-light",
   noindex = false,
@@ -42,24 +38,6 @@ const effectiveOgImage = ogImage ?? defaultOgImage;
 
 // Canonical URL: absolute, with trailing slash (trailingSlash: 'always').
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
-
-// hreflang URL builder — absolute URL for locale + slug.
-function hreflangUrl(locale: Locale, slug: string | undefined): string {
-  return new URL(getLocalizedPath(slug ?? "", locale), Astro.site).href;
-}
-
-// Resolve alternate locale slug: registry for static pages, pre-resolved prop for collection detail.
-const alternate =
-  currentSlug !== undefined
-    ? getAlternateLocaleSlug(lang, currentSlug)
-    : undefined;
-const resolvedAlternateSlug = alternate?.slug ?? alternateSlug;
-
-const deSlug = lang === "de" ? currentSlug : resolvedAlternateSlug;
-const enSlug = lang === "en" ? currentSlug : resolvedAlternateSlug;
-
-const deUrl = hreflangUrl("de", deSlug);
-const enUrl = hreflangUrl("en", enSlug);
 
 // Title: append brand suffix unless already present.
 const { t } = useTranslations(lang);
@@ -72,23 +50,18 @@ const pageTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#6366f1" />
+    <meta name="theme-color" content="#f59e0b" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex,nofollow" />}
     <link rel="canonical" href={canonicalUrl} />
-
-    <!-- hreflang annotations -->
-    <link rel="alternate" hreflang="de" href={deUrl} />
-    <link rel="alternate" hreflang="en" href={enUrl} />
-    <link rel="alternate" hreflang="x-default" href={deUrl} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:locale" content={lang === "de" ? "de_DE" : "en_US"} />
+    <meta property="og:locale" content="de_DE" />
     <meta
       property="og:image"
       content={new URL(effectiveOgImage, Astro.site).href}
@@ -114,17 +87,12 @@ const pageTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
   <body class="bg-surface min-h-screen">
     <a
       href="#main-content"
-      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-accent focus:text-white focus:px-4 focus:py-2 focus:rounded"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-accent focus:text-surface-dark focus:px-4 focus:py-2 focus:rounded"
     >
-      Skip to content
+      Zum Inhalt springen
     </a>
 
-    <Header
-      lang={lang}
-      currentSlug={currentSlug}
-      alternateSlug={resolvedAlternateSlug}
-      variant={headerVariant}
-    />
+    <Header lang={lang} currentSlug={currentSlug} variant={headerVariant} />
 
     <main
       id="main-content"

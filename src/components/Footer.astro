@@ -15,30 +15,38 @@ type NavLink = { href: string; label: string };
 const navLinks: NavLink[] = [
   { href: getLocalizedPath("", lang), label: t("navigation.home") },
   {
-    href: getLocalizedPath(lang === "de" ? "ueber-uns" : "about", lang),
+    href: getLocalizedPath("ueber-mich", lang),
     label: t("navigation.about"),
   },
   {
-    href: getLocalizedPath(lang === "de" ? "leistungen" : "services", lang),
+    href: getLocalizedPath("vortraege", lang),
     label: t("navigation.services"),
   },
   { href: getLocalizedPath("blog", lang), label: t("navigation.blog") },
-  { href: getLocalizedPath("team", lang), label: t("navigation.team") },
   {
-    href: getLocalizedPath(lang === "de" ? "kontakt" : "contact", lang),
+    href: getLocalizedPath("referenzen", lang),
+    label: t("navigation.caseStudies"),
+  },
+  {
+    href: getLocalizedPath("kontakt", lang),
     label: t("navigation.contact"),
   },
 ];
 
 const legalLinks: NavLink[] = [
   {
-    href: getLocalizedPath(lang === "de" ? "datenschutz" : "privacy", lang),
+    href: getLocalizedPath("datenschutz", lang),
     label: t("footer.privacy"),
   },
   {
-    href: getLocalizedPath(lang === "de" ? "impressum" : "imprint", lang),
+    href: getLocalizedPath("impressum", lang),
     label: t("footer.imprint"),
   },
+];
+
+const socialLinks: NavLink[] = [
+  { href: t("social.linkedin"), label: "LinkedIn" },
+  { href: t("social.instagram"), label: "Instagram" },
 ];
 ---
 
@@ -58,8 +66,22 @@ const legalLinks: NavLink[] = [
           {t("site.tagline")}
         </p>
 
-        <!-- Social links placeholder — fill in during onboarding -->
-        <!-- TODO: Add social links (LinkedIn, Twitter, etc.) -->
+        <ul class="flex flex-wrap gap-4 mt-6">
+          {
+            socialLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm text-text-on-dark/70 hover:text-text-on-dark underline underline-offset-2 transition-colors duration-[var(--transition-fast)]"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
       </div>
 
       <!-- Navigation column -->
@@ -90,7 +112,7 @@ const legalLinks: NavLink[] = [
         <p
           class="text-sm font-semibold text-text-on-dark/50 uppercase tracking-wider mb-4"
         >
-          Legal
+          Rechtliches
         </p>
         <ul class="space-y-2">
           {

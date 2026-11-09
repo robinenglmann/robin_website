@@ -1,20 +1,20 @@
 {
   "site": {
-    "name": "Greenleaf Digital",
-    "tagline": "Digitale Lösungen mit Leidenschaft",
-    "description": "Greenleaf Digital — Ihre Agentur für moderne Webprojekte."
+    "name": "Robin Englmann",
+    "tagline": "Keynote Speaker für KI, Transformation und Führungskultur",
+    "description": "Robin Englmann – Keynote Speaker für KI, Transformation und Führungskultur. Vorträge und Impulse für Unternehmen, Verbände und Konferenzen."
   },
   "navigation": {
     "home": "Startseite",
-    "about": "Über uns",
-    "services": "Leistungen",
+    "about": "Über mich",
+    "services": "Vorträge",
     "blog": "Blog",
     "caseStudies": "Referenzen",
     "team": "Team",
     "contact": "Kontakt"
   },
   "footer": {
-    "copyright": "© {year} Greenleaf Digital. Alle Rechte vorbehalten.",
+    "copyright": "© {year} Robin Englmann. Alle Rechte vorbehalten.",
     "builtWith": "Gebaut mit passionfruit",
     "privacy": "Datenschutz",
     "imprint": "Impressum"
@@ -39,11 +39,11 @@
   },
   "contact": {
     "title": "Kontakt",
-    "description": "Nehmen Sie Kontakt mit uns auf.",
+    "description": "Sie planen eine Veranstaltung? Ich freue mich auf Ihre Anfrage.",
     "info": {
-      "email": "hello@example.com",
-      "phone": "+49 123 456 789",
-      "address": "Musterstraße 1, 12345 Musterstadt"
+      "email": "robin.englmann@biaround.de",
+      "phone": "0179 4256013",
+      "address": "Heinrich-Heine-Str. 14, 85092 Kösching"
     },
     "form": {
       "name": "Name",
@@ -77,8 +77,8 @@
     "empty": {
       "posts": {
         "headline": "Noch keine Beiträge",
-        "body": "Hier entsteht in Kürze etwas. Bis dahin lohnt sich ein Blick auf unsere Leistungen.",
-        "cta": "Zu den Leistungen"
+        "body": "Hier entsteht in Kürze etwas. Bis dahin lohnt sich ein Blick auf meine Vorträge.",
+        "cta": "Zu den Vorträgen"
       },
       "filters": {
         "headline": "Keine Treffer für diese Auswahl",
@@ -108,68 +108,68 @@
   },
   "home": {
     "hero": {
-      "headline": "Digitale Lösungen mit Leidenschaft",
-      "subheadline": "Wir gestalten moderne Websites, die Ihr Unternehmen voranbringen.",
-      "cta": "Jetzt starten"
+      "headline": "Keynote Speaker für KI, Transformation und Führungskultur",
+      "subheadline": "Vorträge, die Orientierung geben: wie Organisationen künstliche Intelligenz sinnvoll nutzen, Wandel gestalten und Führung neu denken.",
+      "cta": "Vortrag anfragen"
     },
     "features": {
-      "title": "Was wir bieten",
-      "subtitle": "Maßgeschneiderte digitale Lösungen für Ihr Unternehmen."
+      "title": "Drei Themen, ein Ziel: Zukunft gestalten",
+      "subtitle": "Jede Keynote verbindet Technologie mit dem Menschen – praxisnah, verständlich und auf Ihr Publikum zugeschnitten."
     },
     "testimonials": {
-      "title": "Was unsere Kunden sagen"
+      "title": "Was Veranstalter sagen"
     },
     "faq": {
       "title": "Häufig gestellte Fragen"
     },
     "ctaSection": {
-      "title": "Bereit für den nächsten Schritt?",
-      "subtitle": "Lassen Sie uns gemeinsam Ihre digitale Zukunft gestalten.",
-      "cta": "Kontakt aufnehmen"
+      "title": "Bereit für einen Impuls, der bleibt?",
+      "subtitle": "Erzählen Sie mir von Ihrer Veranstaltung – gemeinsam finden wir das passende Format.",
+      "cta": "Jetzt anfragen"
     }
   },
   "services": {
-    "title": "Unsere Leistungen",
-    "description": "Entdecken Sie unser Leistungsangebot.",
+    "title": "Vorträge",
+    "description": "Drei Keynotes zu Führung, Kultur und Digitalisierung – jeweils abgestimmt auf Ihr Publikum.",
     "webDesign": {
-      "title": "Webdesign",
-      "description": "Moderne, responsive Websites, die begeistern."
+      "title": "Künstliche Intelligenz",
+      "description": "Was KI heute wirklich kann, wo ihre Grenzen liegen und wie Unternehmen sie verantwortungsvoll einsetzen."
     },
     "development": {
-      "title": "Webentwicklung",
-      "description": "Technisch einwandfreie Lösungen mit modernsten Technologien."
+      "title": "Transformation",
+      "description": "Wie Veränderung gelingt: Orientierung im Wandel und konkrete Schritte, um Menschen mitzunehmen."
     },
     "consulting": {
-      "title": "Beratung",
-      "description": "Strategische Beratung für Ihre digitale Transformation."
+      "title": "Führungskultur",
+      "description": "Führung in Zeiten von KI und Wandel: Vertrauen, Klarheit und eine Kultur, die Zukunft ermöglicht."
     }
   },
   "about": {
-    "title": "Über uns",
-    "description": "Erfahren Sie mehr über Greenleaf Digital.",
+    "title": "Über mich",
+    "description": "Robin Englmann: über 15 Jahre Führung in Produktion und Schichtbetrieb – vom Operator an der Anlage bis zum Head of Operations.",
     "story": {
-      "eyebrow": "Unsere Geschichte",
-      "title": "Wir glauben, dass jeder eine großartige Website verdient",
-      "text": "Greenleaf Digital wurde mit einer einfachen Idee gegründet: Professionelle Webentwicklung sollte für jeden zugänglich sein. Wir glauben, dass moderne Technologien und KI-gestützte Workflows die Art verändern, wie Websites entstehen — und dass diese Veränderung allen zugutekommen sollte."
+      "eyebrow": "Über mich",
+      "title": "Ich rede nicht über die Halle. Ich komme aus ihr.",
+      "text": "Ich bin Robin Englmann. Seit über 15 Jahren führe ich Menschen in Produktion und Schichtbetrieb – angefangen als Operator an der Anlage, heute als Head of Operations mit rund 140 Mitarbeitenden an zwei Standorten. In meinen Vorträgen geht es um das, was ich jeden Tag erlebe: Führung zwischen Erfahrung, neuen Erwartungen und künstlicher Intelligenz."
     },
     "values": {
-      "eyebrow": "Unsere Werte",
-      "title": "Was uns antreibt",
+      "eyebrow": "Wofür ich stehe",
+      "title": "Was meine Vorträge ausmacht",
       "quality": {
-        "title": "Qualität vor Quantität",
-        "description": "Jedes Projekt verdient höchste Sorgfalt. Wir liefern keine Massenware, sondern maßgeschneiderte Lösungen."
+        "title": "Aus der Praxis",
+        "description": "Keine Theorie vom Schreibtisch: Meine Beispiele stammen aus über 15 Jahren Führung in Produktion, Schichtbetrieb und Instandhaltung."
       },
       "transparency": {
-        "title": "Transparenz",
-        "description": "Offene Kommunikation in jedem Projektschritt. Keine versteckten Kosten, keine Überraschungen."
+        "title": "Direkt",
+        "description": "Klare Worte statt Buzzword-Bingo – verständlich für die Werkleitung genauso wie für die Schichtführung."
       },
       "innovation": {
-        "title": "Innovation",
-        "description": "Wir nutzen die neuesten Technologien — nicht um des Trends willen, sondern weil sie bessere Ergebnisse liefern."
+        "title": "Zukunftsorientiert",
+        "description": "Ich bewerte neue Technologien im eigenen Betrieb. Deshalb spreche ich über KI aus Erfahrung, nicht aus dem Prospekt."
       },
       "accessibility": {
-        "title": "Zugänglichkeit",
-        "description": "Unsere Websites sind für alle Menschen nutzbar. Barrierefreiheit ist kein Feature, sondern Standard."
+        "title": "Menschlich",
+        "description": "Technik ist nur so gut wie die Menschen, die mit ihr arbeiten. Führung entscheidet, ob Wandel gelingt."
       }
     },
     "stats": {
@@ -177,6 +177,17 @@
       "satisfaction": "Kundenzufriedenheit",
       "technologies": "Technologien",
       "languages": "Sprachen"
+    },
+    "career": {
+      "eyebrow": "Werdegang",
+      "title": "Vom Operator zum Head of Operations",
+      "subtitle": "Jede Stufe hat mir etwas über Führung beigebracht, das in keinem Lehrbuch steht.",
+      "step": "Stufe {n}",
+      "aside": "Daneben studiere ich Wirtschaftsingenieurwesen und habe BIaround gegründet, eine KI-Wissensplattform für die Instandhaltung."
+    },
+    "quote": {
+      "text": "Ich stand selbst an der Maschine.",
+      "caption": "Deshalb weiß ich, was Führung in der Halle wirklich bedeutet – und was sich verändert, wenn KI ins Team kommt."
     }
   },
   "legal": {
@@ -200,7 +211,7 @@
   },
   "careers": {
     "title": "Karriere",
-    "description": "Werde Teil unseres Teams. Offene Stellen bei Greenleaf Digital.",
+    "description": "Offene Stellen.",
     "apply": "Jetzt bewerben",
     "openPosition": "Offene Position",
     "postedOn": "Veröffentlicht am",
@@ -217,7 +228,7 @@
   },
   "events": {
     "title": "Veranstaltungen",
-    "description": "Webinare, Workshops und Konferenzen von Greenleaf Digital.",
+    "description": "Kommende und vergangene Auftritte.",
     "noResults": "Keine Veranstaltungen gefunden.",
     "register": "Jetzt anmelden",
     "details": "Details ansehen",
@@ -238,8 +249,8 @@
   },
   "caseStudies": {
     "title": "Referenzen",
-    "description": "Erfahren Sie, wie unsere Kunden von der Zusammenarbeit mit Greenleaf Digital profitieren.",
-    "noResults": "Keine Referenzen gefunden.",
+    "description": "Ausgewählte Auftritte bei Konferenzen, Messen und Fachverbänden.",
+    "noResults": "Referenzen folgen in Kürze.",
     "readMore": "Mehr lesen",
     "watchInterview": "Interview ansehen",
     "videoAvailable": "Video verfügbar",
@@ -255,5 +266,34 @@
     "srCompany": "Unternehmen",
     "quoteOpen": "„",
     "quoteClose": "“"
+  },
+  "social": {
+    "linkedin": "https://www.linkedin.com/in/robin-englmann-811532124/",
+    "instagram": "https://www.instagram.com/robin.biaround/"
+  },
+  "keynotes": {
+    "audienceLabel": "Ideal für",
+    "signature": {
+      "label": "Signature-Keynote",
+      "title": "Erfahrung, Erwartung und KI: Führen, wenn drei Welten in einem Team arbeiten",
+      "description": "Erfahrene Kolleginnen und Kollegen, eine Generation mit neuen Erwartungen und KI als neues Teammitglied: Diese Keynote zeigt, wie Führung diese drei Welten verbindet, statt sie gegeneinander auszuspielen."
+    },
+    "industry": {
+      "label": "Industrie-Keynote",
+      "title": "Die Software ist nicht das Problem: Warum Digitalisierung an der Kultur scheitert",
+      "description": "Neue Systeme allein verändern nichts. Diese Keynote zeigt, warum Digitalisierungsprojekte selten an der Technik scheitern, sondern an Gewohnheiten, Strukturen und fehlendem Vertrauen – und was Unternehmen dagegen tun können."
+    },
+    "midmarket": {
+      "label": "Mittelstand-Keynote",
+      "title": "Digitale Transformation im Mittelstand: Die echten Pain Points und wie sie die Digitalisierung hemmen",
+      "description": "Ein ehrlicher Blick auf die Hürden, die Digitalisierung im Mittelstand ausbremsen – und auf pragmatische Wege, sie zu überwinden."
+    }
+  },
+  "appearances": {
+    "eyebrow": "Bühnen",
+    "title": "Hier habe ich bereits gesprochen",
+    "talkLabel": "Vortrag:",
+    "videoEyebrow": "Podcast & Video",
+    "videoTitle": "Robin im Gespräch"
   }
 }

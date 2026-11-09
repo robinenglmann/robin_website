@@ -2,7 +2,6 @@ import type { Locale } from "~/i18n";
 
 const localeMap: Record<Locale, string> = {
   de: "de-DE",
-  en: "en-US",
 };
 
 export function formatDate(date: Date, lang: Locale): string {

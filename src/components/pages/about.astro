@@ -5,9 +5,18 @@ import type { Locale } from "~/i18n";
 import { useTranslations, getLocalizedPath } from "~/i18n";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import Button from "~/components/Button.astro";
-import TeamCard from "~/components/TeamCard.astro";
-import { getAlternateCollectionSlug } from "~/lib/page-registry";
-import { ArrowRight, Shield, Eye, Zap, Heart } from "@lucide/astro";
+import {
+  ArrowRight,
+  Shield,
+  Eye,
+  Zap,
+  Heart,
+  Wrench,
+  HardHat,
+  FlaskConical,
+  Factory,
+  Quote,
+} from "@lucide/astro";
 
 interface Props {
   lang: Locale;
@@ -17,17 +26,41 @@ interface Props {
 const { lang, currentSlug } = Astro.props;
 const { t } = useTranslations(lang);
 
-const alternateSlug = await getAlternateCollectionSlug(lang, "pages", "about");
-
-const allMembers = await getCollection("team");
-const members = allMembers
-  .filter((m) => m.id.startsWith(`${lang}/`))
-  .sort((a, b) => a.data.displayOrder - b.data.displayOrder);
-
 const pagesEntries = await getCollection("pages");
 const heroImage = pagesEntries.find(
   (p) => p.id.startsWith(`${lang}/`) && p.data.translationKey === "about",
 )?.data.heroImage;
+
+// Career staircase — roles first, companies as secondary context.
+const career = [
+  {
+    icon: Wrench,
+    role: "Operator",
+    company: "LyondellBasell",
+    detail: "Chemie- und Prozessindustrie, Arbeit direkt an der Anlage.",
+  },
+  {
+    icon: HardHat,
+    role: "Vorarbeiter & Schichtleiter",
+    company: "LyondellBasell",
+    detail:
+      "Schichtbetrieb, Anlagen- und Instandhaltungspraxis, erste Führungsverantwortung.",
+  },
+  {
+    icon: FlaskConical,
+    role: "Teamleiter",
+    company: "Scheugenpflug",
+    detail:
+      "Technologie- und Anwendungszentrum: Verfahrenstechnik und Teamführung.",
+  },
+  {
+    icon: Factory,
+    role: "Head of Operations & Technical Department",
+    company: "NATECO2",
+    detail:
+      "Vom Betriebsingenieur über die technische Betriebsleitung bis heute: zwei Standorte, rund 140 Mitarbeitende, operative Strategie und die Bewertung neuer Technologien.",
+  },
+];
 
 const values = [
   {
@@ -51,13 +84,6 @@ const values = [
     descKey: "about.values.accessibility.description",
   },
 ];
-
-const stats = [
-  { value: "50+", labelKey: "about.stats.projects" },
-  { value: "98%", labelKey: "about.stats.satisfaction" },
-  { value: "12+", labelKey: "about.stats.technologies" },
-  { value: "2", labelKey: "about.stats.languages" },
-];
 ---
 
 <BaseLayout
@@ -65,7 +91,6 @@ const stats = [
   description={t("about.description")}
   lang={lang}
   currentSlug={currentSlug}
-  alternateSlug={alternateSlug}
   headerVariant="on-dark"
 >
   <!-- Hero -->
@@ -109,7 +134,7 @@ const stats = [
               <div class="absolute -inset-8 rounded-[2rem] bg-gradient-to-br from-accent/20 via-transparent to-warm/20 blur-2xl" />
               <Image
                 src={heroImage}
-                alt=""
+                alt="Robin Englmann spricht auf der Bühne"
                 class="relative rounded-2xl shadow-2xl shadow-accent/10 ring-1 ring-white/10"
                 widths={[400, 600, 800, 1200]}
                 sizes="(min-width: 1024px) 50vw, 100vw"
@@ -122,25 +147,77 @@ const stats = [
     </div>
   </section>
 
-  <!-- Stats -->
-  <section class="relative -mt-12 z-20">
+  <!-- Career staircase -->
+  <section class="py-28 md:py-36">
     <div class="container">
-      <div
-        class="glass-light rounded-2xl p-8 md:p-10 grid grid-cols-2 md:grid-cols-4 gap-8 shadow-xl shadow-accent/5 hero-stagger"
-        style="--delay: 600ms"
+      <div class="max-w-2xl anim-slide-up">
+        <p class="eyebrow">{t("about.career.eyebrow")}</p>
+        <h2 class="text-h2 text-text-heading mt-4">
+          {t("about.career.title")}
+        </h2>
+        <p class="text-body-lg text-muted mt-4">
+          {t("about.career.subtitle")}
+        </p>
+      </div>
+
+      <ol
+        class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-[repeat(4,minmax(0,1fr))] lg:items-end lg:[--step-rise:2rem]"
       >
         {
-          stats.map((stat) => (
-            <div class="text-center">
-              <p class="text-h2 font-extrabold gradient-text">{stat.value}</p>
-              <p class="text-muted text-sm mt-1 font-medium">
-                {t(stat.labelKey)}
+          career.map((step, i) => (
+            <li
+              class="card anim-card-enter flex flex-col"
+              style={`--delay: ${i * 120}ms; margin-bottom: calc(var(--step-rise, 0px) * ${i})`}
+            >
+              <div class="flex items-center justify-between">
+                <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                  <step.icon class="w-6 h-6 text-accent" aria-hidden="true" />
+                </div>
+                <span class="text-sm font-semibold text-muted">
+                  {t("about.career.step", { n: i + 1 })}
+                </span>
+              </div>
+              <h3 class="text-h3 text-text-heading mt-6 hyphens-auto break-words">
+                {step.role}
+              </h3>
+              <p class="text-sm font-medium text-accent-hover mt-1">
+                {step.company}
               </p>
-            </div>
+              <p class="text-muted mt-3 leading-relaxed text-sm">
+                {step.detail}
+              </p>
+            </li>
           ))
         }
-      </div>
+      </ol>
+
+      <p class="text-muted mt-10 max-w-3xl anim-fade">
+        {t("about.career.aside")}
+      </p>
     </div>
+  </section>
+
+  <!-- Signature quote -->
+  <section
+    class="py-28 md:py-36 bg-surface-dark noise relative overflow-hidden"
+  >
+    <div
+      class="absolute top-0 left-1/3 w-[500px] h-[500px] rounded-full bg-accent/10 blur-[140px] -translate-y-1/2"
+    >
+    </div>
+    <figure
+      class="container relative z-10 max-w-3xl text-center anim-scale-blur"
+    >
+      <Quote class="w-10 h-10 text-accent-glow/50 mx-auto" aria-hidden="true" />
+      <blockquote class="text-h1 text-text-on-dark mt-6">
+        {
+          `${t("caseStudies.quoteOpen")}${t("about.quote.text")}${t("caseStudies.quoteClose")}`
+        }
+      </blockquote>
+      <figcaption class="text-body-lg text-text-on-dark/60 mt-6">
+        {t("about.quote.caption")}
+      </figcaption>
+    </figure>
   </section>
 
   <!-- Values -->
@@ -178,46 +255,6 @@ const stats = [
     </div>
   </section>
 
-  <!-- Team preview -->
-  <section
-    class="py-28 md:py-36 bg-surface-dark noise relative overflow-hidden"
-  >
-    <div
-      class="absolute top-0 left-1/3 w-[500px] h-[500px] rounded-full bg-accent/10 blur-[140px] -translate-y-1/2"
-    >
-    </div>
-    <div class="container relative z-10">
-      <div class="text-center anim-slide-up">
-        <p class="eyebrow text-accent-glow">{t("team.title")}</p>
-        <h2 class="text-h2 text-text-on-dark mt-4">{t("team.description")}</h2>
-      </div>
-
-      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-16">
-        {
-          members.map((member, i) => (
-            <div class="anim-card-enter" style={`--delay: ${i * 100}ms`}>
-              <TeamCard entry={member} lang={lang} />
-            </div>
-          ))
-        }
-      </div>
-
-      <div class="text-center mt-12 anim-fade">
-        <Button
-          href={getLocalizedPath("team", lang)}
-          variant="secondary"
-          tone="on-dark"
-          class="group"
-        >
-          {t("navigation.team")}
-          <ArrowRight
-            class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"
-          />
-        </Button>
-      </div>
-    </div>
-  </section>
-
   <!-- CTA -->
   <section class="relative py-28 md:py-36 overflow-hidden">
     <div class="container text-center anim-scale-blur">
@@ -229,7 +266,7 @@ const stats = [
       </p>
       <div class="mt-10">
         <Button
-          href={getLocalizedPath(lang === "de" ? "kontakt" : "contact", lang)}
+          href={getLocalizedPath("kontakt", lang)}
           variant="primary"
           class="btn-glow group"
         >
