@@ -1,0 +1,12 @@
+// Cloudflare Workers deployment for the static Astro build.
+// The Worker name must match the project created in the Cloudflare dashboard.
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "robin-website",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page",
+    "html_handling": "force-trailing-slash",
+  },
+}
