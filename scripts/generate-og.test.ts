@@ -105,7 +105,13 @@ function readPngHeader(filePath: string): PngHeader {
 test("7.1 default run writes both locales", () => {
   const outDir = mkTmpOutDir();
   try {
-    const result = runCli(["--out-dir", outDir]);
+    // The fixture project is bilingual; the real site may be single-locale.
+    const result = runCli([
+      "--project-root",
+      FIXTURE_ROOT,
+      "--out-dir",
+      outDir,
+    ]);
     assert.equal(
       result.status,
       0,
@@ -163,7 +169,14 @@ test("7.2 --lang de writes only de", () => {
 test("7.3 --lang en writes only en", () => {
   const outDir = mkTmpOutDir();
   try {
-    const result = runCli(["--out-dir", outDir, "--lang", "en"]);
+    const result = runCli([
+      "--project-root",
+      FIXTURE_ROOT,
+      "--out-dir",
+      outDir,
+      "--lang",
+      "en",
+    ]);
     assert.equal(
       result.status,
       0,

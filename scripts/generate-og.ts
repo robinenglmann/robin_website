@@ -15,7 +15,7 @@
  *   --help, -h              Show this help and exit
  */
 
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 
 import type { SatoriOptions } from "satori";
@@ -200,9 +200,12 @@ async function main(argv: string[]): Promise<number> {
 
   const projectRoot = resolve(parsed.args.projectRoot ?? process.cwd());
   const outDir = resolve(parsed.args.outDir ?? join(projectRoot, "public"));
+  // Default: every locale that has an i18n file, so single-locale sites work.
   const locales: readonly Locale[] = parsed.args.lang
     ? [parsed.args.lang]
-    : LOCALES;
+    : LOCALES.filter((l) =>
+        existsSync(join(projectRoot, "src", "i18n", `${l}.json`)),
+      );
 
   let fonts: SatoriOptions["fonts"];
   try {
