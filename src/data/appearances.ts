@@ -2,6 +2,8 @@ import type { ImageMetadata } from "astro";
 import type { Locale } from "~/i18n";
 import ansbachPhoto from "~/assets/home/robin-vortrag.jpg";
 import koelnPhoto from "~/assets/talks/robin-koeln-publikum.jpg";
+import podcastPoster from "~/assets/videos/p6ZYA4Xyf8s.jpg";
+import fviPoster from "~/assets/videos/U3LhlVTYafs.jpg";
 
 export interface Appearance {
   /** Name of the event or format. */
@@ -24,6 +26,8 @@ export interface VideoAppearance {
   videoId: string;
   title: string;
   channel: string;
+  /** YouTube thumbnail, stored locally so no request goes to YouTube before play. */
+  poster: ImageMetadata;
 }
 
 const appearances: Record<Locale, Appearance[]> = {
@@ -71,6 +75,7 @@ const videos: Record<Locale, VideoAppearance[]> = {
       title:
         "Wie ein Operations Manager aus Beraterfrust ein eigenes Unternehmen gebaut hat",
       channel: "Maintenance Podcast – Lead the Asset",
+      poster: podcastPoster,
     },
     {
       videoId: "U3LhlVTYafs",
@@ -78,6 +83,7 @@ const videos: Record<Locale, VideoAppearance[]> = {
         "Das FVI-Expertenfrühstück – Folge 21: Arbeitssicherheit neu gedacht",
       channel:
         "Forum Vision Instandhaltung – Gesprächsrunde zur Arbeitssicherheit",
+      poster: fviPoster,
     },
   ],
 };

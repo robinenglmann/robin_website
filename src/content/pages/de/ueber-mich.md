@@ -1,7 +1,7 @@
 ---
 translationKey: "about"
 title: "Über mich"
-description: "Lernen Sie Robin Englmann kennen – Keynote Speaker für KI, Transformation und Führungskultur."
+description: "Robin Englmann: über 15 Jahre Führung in Produktion und Schichtbetrieb – vom Operator an der Anlage bis zum Head of Operations."
 heroImage: "../../../assets/about/robin-buehne.jpg"
 ---
 

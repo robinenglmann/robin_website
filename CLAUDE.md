@@ -8,7 +8,9 @@ Speaker homepage of **Robin Englmann** — Keynote Speaker für KI, Transformati
 - **Pages:** Startseite, Über mich (`/ueber-mich/`), Vorträge (`/vortraege/`, registry key `services`), Blog, Referenzen (`/referenzen/`), Kontakt, Datenschutz, Impressum.
 - **Collections in use:** `blog`, `pages`, `caseStudies`. `team`, `events`, `careers` exist in the schema but are empty and have no index page.
 - **Accent:** amber `#f59e0b` (see STYLE_GUIDE.md contrast rule).
-- **Open items:** replace the template hero image (`src/assets/home/hero.png`) with a photo of Robin, add real Referenzen and testimonials, set the real domain in `astro.config.mjs`, have Datenschutz legally reviewed.
+- **Positioning:** Praktiker statt HR-Theoretiker — 15+ Jahre Führung in Produktion/Schichtbetrieb, Operator → Head of Operations. Tone: bodenständig, direkt, kein Buzzword-Bingo. Roles matter more than company names. BIaround only as a side note. No generation names in talk titles.
+- **Data files:** stage appearances and videos live in `src/data/appearances.ts` (rendered on Referenzen + homepage teaser). Photos from talks: `src/assets/{home,talks,about,videos}/`; originals in `../material/fotos/` (outside the repo). Employer/client logos (Hopfenveredlung, NATECO2) are retouched out of photos.
+- **Open items:** add organizer testimonials (`src/data/testimonials.ts`, `src/content/caseStudies/de/`), set the real domain in `astro.config.mjs`, have Datenschutz legally reviewed, confirm photo usage rights/credits.
 
 ## 2. Self-improvement rule
 

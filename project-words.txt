@@ -133,3 +133,6 @@ zurückgespielt
 Englmann
 Kösching
 biaround
+LyondellBasell
+Scheugenpflug
+NATECO

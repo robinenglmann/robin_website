@@ -146,30 +146,30 @@
   },
   "about": {
     "title": "Über mich",
-    "description": "Lernen Sie Robin Englmann kennen – Keynote Speaker für KI, Transformation und Führungskultur.",
+    "description": "Robin Englmann: über 15 Jahre Führung in Produktion und Schichtbetrieb – vom Operator an der Anlage bis zum Head of Operations.",
     "story": {
       "eyebrow": "Über mich",
-      "title": "Technologie verstehen. Menschen bewegen.",
-      "text": "Ich bin Robin Englmann. In meinen Vorträgen verbinde ich künstliche Intelligenz, Transformation und Führungskultur zu einer klaren Botschaft: Die Zukunft entsteht dort, wo Technologie und Menschen gut zusammenarbeiten."
+      "title": "Ich rede nicht über die Halle. Ich komme aus ihr.",
+      "text": "Ich bin Robin Englmann. Seit über 15 Jahren führe ich Menschen in Produktion und Schichtbetrieb – angefangen als Operator an der Anlage, heute als Head of Operations mit rund 140 Mitarbeitenden an zwei Standorten. In meinen Vorträgen geht es um das, was ich jeden Tag erlebe: Führung zwischen Erfahrung, neuen Erwartungen und künstlicher Intelligenz."
     },
     "values": {
       "eyebrow": "Wofür ich stehe",
       "title": "Was meine Vorträge ausmacht",
       "quality": {
-        "title": "Praxisnah",
-        "description": "Keine Theorie um ihrer selbst willen: Jeder Vortrag liefert Beispiele und Impulse, die sich direkt umsetzen lassen."
+        "title": "Aus der Praxis",
+        "description": "Keine Theorie vom Schreibtisch: Meine Beispiele stammen aus über 15 Jahren Führung in Produktion, Schichtbetrieb und Instandhaltung."
       },
       "transparency": {
-        "title": "Verständlich",
-        "description": "Komplexe Themen wie KI klar und ohne Fachjargon erklärt – für Fachpublikum ebenso wie für Einsteiger."
+        "title": "Direkt",
+        "description": "Klare Worte statt Buzzword-Bingo – verständlich für die Werkleitung genauso wie für die Schichtführung."
       },
       "innovation": {
         "title": "Zukunftsorientiert",
-        "description": "Aktuelle Entwicklungen im Blick, mit dem Fokus darauf, was sie für Organisationen und Führung bedeuten."
+        "description": "Ich bewerte neue Technologien im eigenen Betrieb. Deshalb spreche ich über KI aus Erfahrung, nicht aus dem Prospekt."
       },
       "accessibility": {
         "title": "Menschlich",
-        "description": "Technologie ist nur so gut wie die Kultur, in der sie eingesetzt wird. Der Mensch steht im Mittelpunkt."
+        "description": "Technik ist nur so gut wie die Menschen, die mit ihr arbeiten. Führung entscheidet, ob Wandel gelingt."
       }
     },
     "stats": {
@@ -177,6 +177,17 @@
       "satisfaction": "Kundenzufriedenheit",
       "technologies": "Technologien",
       "languages": "Sprachen"
+    },
+    "career": {
+      "eyebrow": "Werdegang",
+      "title": "Vom Operator zum Head of Operations",
+      "subtitle": "Jede Stufe hat mir etwas über Führung beigebracht, das in keinem Lehrbuch steht.",
+      "step": "Stufe {n}",
+      "aside": "Daneben studiere ich Wirtschaftsingenieurwesen und habe BIaround gegründet, eine KI-Wissensplattform für die Instandhaltung."
+    },
+    "quote": {
+      "text": "Ich stand selbst an der Maschine.",
+      "caption": "Deshalb weiß ich, was Führung in der Halle wirklich bedeutet – und was sich verändert, wenn KI ins Team kommt."
     }
   },
   "legal": {

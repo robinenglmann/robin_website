@@ -9,7 +9,6 @@ import YouTubeFacade from "~/components/YouTubeFacade.astro";
 import { getAppearances, getVideos } from "~/data/appearances";
 import { formatDate } from "~/lib/format-date";
 import { CalendarDays, MapPin, ExternalLink } from "@lucide/astro";
-import videoPoster from "~/assets/home/robin-vortrag.jpg";
 
 interface Props {
   lang: Locale;
@@ -169,7 +168,7 @@ if (selectedTags.length > 0) {
               <div>
                 <YouTubeFacade
                   videoId={video.videoId}
-                  poster={videoPoster}
+                  poster={video.poster}
                   posterAlt=""
                   title={video.title}
                   lang={lang}
